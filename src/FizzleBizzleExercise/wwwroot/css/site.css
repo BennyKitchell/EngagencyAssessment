@@ -1,0 +1,250 @@
+﻿body {
+    background-color: mistyrose;
+    padding-top: 50px;
+}
+
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+text{
+    color:white;
+}
+
+hr {
+    margin-top: -15px;
+    width: 90%;
+    height: 7px;
+    background: white;
+}
+
+p {
+    color: white;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 5%;
+    font-size: 19px;
+}
+/*****************************************************************/
+/*******Begin Application CSS********/
+
+/*Foreground of the application*/
+.foreground {
+    border-radius: 25px;
+    background-color: #CC3611;
+    max-width: 700px;
+    min-height: 1224px;
+    margin: 0 auto;
+    box-shadow: 5px 5px 5px #888888;
+}
+@media screen and (max-width: 699px){
+    .foreground{
+        width: 100%;
+    }
+}
+/*Top of the application - title*/
+.app-header {
+    font-size: 55px;
+    padding: 5% 5% 0 5%;
+    color: white;
+}
+@media screen and (max-width: 699px){
+    .app-header{
+        font-size: 35px;
+        padding-bottom: 3%;
+    }
+}
+/*sub header of the title*/
+.app-sub-header {
+    text-align: right;
+    font-size: 35px;
+    margin-right: 5%;
+    color: white;
+    margin-top: -25px;
+}
+@media screen and (max-width: 699px){
+    .app-sub-header{
+        font-size: 25px;
+    }
+}
+/*Example Box background with border radius curved*/
+.example-box {
+    background-color: white;
+    margin: 5% 5% 0 5%;
+    border-radius: 0 20px 0 20px;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+/*The header for the example box*/
+.example-header {
+    color: #CC3611;
+    font-size: 25px;
+    margin-left: 5%;
+    font-weight: bold;
+}
+/*The body of the example box*/
+/*Display is inherited to keep the body text inline*/
+.example-body {
+    color: #CC3611;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 18px;
+    word-break: break-word;
+}
+
+/*****************************************************************/
+/*******Begin Form CSS********/
+/*Spacing for the top of the form*/
+.input-form{
+    padding-top:8%;
+}
+
+/*input form spacing*/
+.form-input input {
+    margin-left: 57px;
+    margin-right: 5px;
+}
+@media screen and (max-width: 699px){
+    .form-input input{
+        margin-left: 38px;
+    }
+}
+/*Custom css for the button*/
+.btn, .btn:hover {
+    margin-left: 6%;
+    color: #CC3611;
+    font-weight: bold;
+    max-width: 89%;
+}
+
+@media screen and (max-width: 767px){
+    .btn, .btn:hover {
+        min-width: 280px;
+    }
+}
+
+/*Begin section for bazz switch*/
+.switch{
+    margin-left:1%;
+    display:flex;
+}
+.bazzswitch {
+    position: relative;
+    width: 83px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    margin-left: 5%;
+    margin-top: 3%;
+    border-radius: 25px;
+}
+.bazzswitch-checkbox {
+    display: none;
+}
+.input-lg{
+    margin-top:2%;
+}
+.bazzswitch-label {
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #CC3611;
+}
+.bazzswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.bazzswitch-inner:before, .bazzswitch-inner:after {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 34px;
+    padding: 0;
+    line-height: 34px;
+    font-size: 14px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+.bazzswitch-inner:before {
+    content: "On";
+    padding-left: 11px;
+    background-color: #FFFFFF;
+    color: #CC3611;
+    text-align: center;
+    border-radius: 5px 0 0 6px !important;
+}
+.bazzswitch-inner:after {
+    content: "Off";
+    padding-right: 20px;
+    background-color: #FFFFFF;
+    color: #CC3611;
+    text-align: right;
+    border-radius: 0 5px 5px 0 !important;
+}
+/*added border, border radius*/
+.bazzswitch-switch {
+    display: block;
+    width: 17px;
+    height: 37px;
+    margin: 0px;
+    background: #FFFFFF;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 70px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    transition: all 0.3s ease-in 0s;
+}
+.bazzswitch-checkbox:checked + .bazzswitch-label .bazzswitch-inner {
+    margin-left: 0;
+}
+.bazzswitch-checkbox:checked + .bazzswitch-label .bazzswitch-switch {
+    right: 0px;
+}
+/*CSS for Tooltip - visible portion*/
+.bazz-div {
+    cursor: help;
+    padding-top: 30px;
+    padding-left: 15px;
+}
+/*For the specific pop up tool tip*/
+.tooltip-help {
+    background-color: black;
+    color: #fff;
+    opacity: 0.75;
+    visibility: hidden;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+}
+/*change visibility based on hover*/
+.bazz-div:hover .tooltip-help{
+    visibility:visible;
+    display:flex;
+    flex-direction:row;
+    margin-top: 0;
+}
+/*Dropdown Select menu*/
+.pred-sel {
+    margin-top: 2%;
+    margin-left: 8%;
+    margin-bottom: 3%;
+    color: #CC3611;
+    font-weight: bold;
+    height: 45px;
+}
+/*Bolding the options*/
+option{
+    font-weight:bold;
+}

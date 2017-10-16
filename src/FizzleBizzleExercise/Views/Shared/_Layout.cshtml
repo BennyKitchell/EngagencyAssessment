@@ -1,0 +1,78 @@
+﻿@model FizzleBizzleExercise.Controllers.HomeController
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FizzleBizzle</title>
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+</head>
+<body>
+    @*Rendering the one page app in layout for simplicity, If prefered I could create an outer container div and then render a partial view inside the body*@
+    @*Make class names as desriptiive as possible for future developers*@
+    <div class="container body-content">
+        @RenderBody()
+        <div class="foreground">
+            <div class="app-header">Fizzle Bizzle Test</div>
+            <hr>
+            <div class="app-sub-header">For Engagency<br /></div>
+            <p class="col-lg-push-9">
+                <strong>FizzBuzz</strong> generates an array of strings representing the consecutive sequence of integers from start to end.
+                When the integer is a multiple of Fizz, the string "Fizz" is added instead. Likewise, for multiples of Buzz, "Buzz"
+                is added. For multiples of both Fizz and Buzz, "FizzBuzz" is added.
+            </p>
+            <div class="example-box">
+                <text class="example-header">For example:</text>
+                <br />
+                <text class="example-body">
+                    With Fizz = 3, Buzz = 5, start = 1, and end =15; the array looks like: <br />
+                    ["1","2","Fizz","4","Buzz","Fizz","7","8", ... ,"14","FizzBuzz"]
+                </text>
+            </div>
+            @*Post request for the form*@
+            <form asp-action="FizzBuzzHandler" method="post" class="input-form">
+                <div class="row form-input">
+                    <input type="text" name="start" class="form-control input-lg col-sm-4 start-input" placeholder="Start">
+                    <input type="text" name="end" class="form-control input-lg col-sm-4 end-input" placeholder="End">
+                </div>
+                <div class="row form-input">
+                    <input type="text" name="fizz" class="form-control input-lg col-sm-4" placeholder="Fizz">
+                    <input type="text" name="buzz" class="form-control input-lg col-sm-4" placeholder="Buzz">
+                </div>
+                @*Switch for the "bazz" section of the form*@
+                <div class="row switch">
+                    <div class="bazzswitch">
+                        <input type="checkbox" name="bazzswitch" class="bazzswitch-checkbox" id="bazzswitch" checked>
+                        <label class="bazzswitch-label" for="bazzswitch">
+                            <span class="bazzswitch-inner"></span>
+                            <span class="bazzswitch-switch"></span>
+                        </label>
+                    </div>
+                    <div class="bazz-div">
+                        <text class="bazz-info">Enable Bazz?</text>
+                        <p class="tooltip-help">
+                            Enables the bazz functionality that is displayed based on the chosen predicate.
+                        </p>
+                    </div>
+                </div>
+                <div class="row form-input bazz">
+                    <input type="text" name="bazzval" class="form-control input-lg col-sm-4" placeholder="Bazz">
+                    <select name="predchoice" class="form-control col-sm-4 pred-sel">
+                        <option value="" disabled selected>Predicate</option>
+                        <option value="gt">Greater Than</option>
+                        <option value="lt">Less Than</option>
+                        <option value="gte">Greater Than or Equal To</option>
+                        <option value="lte">Less Than or Equal To</option>
+                    </select>
+                </div>
+                <button class="btn btn-default btn-group-lg col-sm-11 " type="submit">Generate</button>
+            </form>
+        </div>
+    </div>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
