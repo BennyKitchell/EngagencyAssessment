@@ -70,3 +70,56 @@ p {
         font-size: 25px;
     }
 }
+/*Example Box background with border radius curved*/
+.example-box {
+    background-color: white;
+    margin: 5% 5% 0 5%;
+    border-radius: 0 20px 0 20px;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+/*The header for the example box*/
+.example-header {
+    color: #CC3611;
+    font-size: 25px;
+    margin-left: 5%;
+    font-weight: bold;
+}
+/*The body of the example box*/
+/*Display is inherited to keep the body text inline*/
+.example-body {
+    color: #CC3611;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 18px;
+    word-break: break-word;
+}
+
+/*****************************************************************/
+/*******Begin Form CSS********/
+/*Spacing for the top of the form*/
+.input-form{
+    padding-top:8%;
+}
+
+/*input form spacing*/
+.sprite input {
+    margin-left: 57px;
+    margin-right: 5px;
+}
+
+/*Custom css for the button*/
+.btn, .btn:hover {
+    margin-left: 6%;
+    color: #CC3611;
+    font-weight: bold;
+    max-width: 89%;
+}
+
+@media screen and (max-width: 767px){
+    .btn, .btn:hover {
+        min-width: 280px;
+    }
+}

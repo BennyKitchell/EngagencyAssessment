@@ -25,6 +25,26 @@
                 When the integer is a multiple of Fizz, the string "Fizz" is added instead. Likewise, for multiples of Buzz, "Buzz"
                 is added. For multiples of both Fizz and Buzz, "FizzBuzz" is added.
             </p>
+            <div class="example-box">
+                <text class="example-header">For example:</text>
+                <br />
+                <text class="example-body">
+                    With Fizz = 3, Buzz = 5, start = 1, and end =15; the array looks like: <br />
+                    ["1","2","Fizz","4","Buzz","Fizz","7","8", ... ,"14","FizzBuzz"]
+                </text>
+            </div>
+            @*Post request for the form*@
+            <form asp-action="FizzBuzzHandler" method="post" class="input-form">
+                <div class="row sprite">
+                    <input type="text" name="start" class="form-control input-lg col-sm-4 start-input" placeholder="Start">
+                    <input type="text" name="end" class="form-control input-lg col-sm-4 end-input" placeholder="End">
+                </div>
+                <div class="row sprite">
+                    <input type="text" name="fizz" class="form-control input-lg col-sm-4" placeholder="Fizz">
+                    <input type="text" name="buzz" class="form-control input-lg col-sm-4" placeholder="Buzz">
+                </div>
+                <button class="btn btn-default btn-group-lg col-sm-11 " type="submit">Generate</button>
+            </form>
         </div>
     </div>
     @RenderSection("Scripts", required: false)
