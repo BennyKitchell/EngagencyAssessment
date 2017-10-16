@@ -210,3 +210,41 @@ p {
 .bazzswitch-checkbox:checked + .bazzswitch-label .bazzswitch-switch {
     right: 0px;
 }
+/*CSS for Tooltip - visible portion*/
+.bazz-div {
+    cursor: help;
+    padding-top: 30px;
+    padding-left: 15px;
+}
+/*For the specific pop up tool tip*/
+.tooltip-help {
+    background-color: black;
+    color: #fff;
+    opacity: 0.75;
+    visibility: hidden;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+}
+/*change visibility based on hover*/
+.bazz-div:hover .tooltip-help{
+    visibility:visible;
+    display:flex;
+    flex-direction:row;
+    margin-top: 0;
+}
+/*Dropdown Select menu*/
+.pred-sel {
+    margin-top: 2%;
+    margin-left: 8%;
+    margin-bottom: 3%;
+    color: #CC3611;
+    font-weight: bold;
+    height: 45px;
+}
+/*Bolding the options*/
+option{
+    font-weight:bold;
+}
