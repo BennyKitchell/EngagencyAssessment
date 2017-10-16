@@ -52,6 +52,22 @@
                             <span class="bazzswitch-switch"></span>
                         </label>
                     </div>
+                    <div class="bazz-div">
+                        <text class="bazz-info">Enable Bazz?</text>
+                        <p class="tooltip-help">
+                            Enables the bazz functionality that is displayed based on the chosen predicate.
+                        </p>
+                    </div>
+                </div>
+                <div class="row form-input bazz">
+                    <input type="text" name="bazzval" class="form-control input-lg col-sm-4" placeholder="Bazz">
+                    <select name="predchoice" class="form-control col-sm-4 pred-sel">
+                        <option value="" disabled selected>Predicate</option>
+                        <option value="gt">Greater Than</option>
+                        <option value="lt">Less Than</option>
+                        <option value="gte">Greater Than or Equal To</option>
+                        <option value="lte">Less Than or Equal To</option>
+                    </select>
                 </div>
                 <button class="btn btn-default btn-group-lg col-sm-11 " type="submit">Generate</button>
             </form>
