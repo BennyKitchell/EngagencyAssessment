@@ -35,13 +35,23 @@
             </div>
             @*Post request for the form*@
             <form asp-action="FizzBuzzHandler" method="post" class="input-form">
-                <div class="row sprite">
+                <div class="row form-input">
                     <input type="text" name="start" class="form-control input-lg col-sm-4 start-input" placeholder="Start">
                     <input type="text" name="end" class="form-control input-lg col-sm-4 end-input" placeholder="End">
                 </div>
-                <div class="row sprite">
+                <div class="row form-input">
                     <input type="text" name="fizz" class="form-control input-lg col-sm-4" placeholder="Fizz">
                     <input type="text" name="buzz" class="form-control input-lg col-sm-4" placeholder="Buzz">
+                </div>
+                @*Switch for the "bazz" section of the form*@
+                <div class="row switch">
+                    <div class="bazzswitch">
+                        <input type="checkbox" name="bazzswitch" class="bazzswitch-checkbox" id="bazzswitch" checked>
+                        <label class="bazzswitch-label" for="bazzswitch">
+                            <span class="bazzswitch-inner"></span>
+                            <span class="bazzswitch-switch"></span>
+                        </label>
+                    </div>
                 </div>
                 <button class="btn btn-default btn-group-lg col-sm-11 " type="submit">Generate</button>
             </form>
