@@ -10,6 +10,20 @@
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link href="bootstrap.css" rel="stylesheet">
+        <link href="bootstrap-switch.css" rel="stylesheet">
+        <script src="jquery.js"></script>
+        <script src="bootstrap-switch.js"></script>
+    </environment>
+    @*Script to call the sweet alerts*@
+    <script src="http://tristanedwards.me/u/SweetAlert//lib/sweet-alert.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://tristanedwards.me/u/SweetAlert//lib/sweet-alert.css">
+    <link href="~/Content/Bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
     @*Rendering the one page app in layout for simplicity, If prefered I could create an outer container div and then render a partial view inside the body*@
@@ -71,8 +85,61 @@
                 </div>
                 <button class="btn btn-default btn-group-lg col-sm-11 " type="submit">Generate</button>
             </form>
+            @if (ViewBag.Message != null)
+            {
+                <script type="text/javascript">
+                    window.onload = function () {
+                        swal({
+                            title: '',
+                            text: '@ViewBag.message',
+                            imageUrl: "/images/engagency.png",
+                            confirmButtonColor: "#CC3611"
+                        });
+                    }
+                </script>
+            }
+            @if (ViewBag.Error != null)
+            {
+                <script type="text/javascript">
+                    window.onload = function () {
+                        swal({
+                            title: '',
+                            text: '@ViewBag.error',
+                            confirmButtonColor: "#CC3611",
+                            type: "warning"
+                        });
+                    }
+                </script>
+            }
         </div>
     </div>
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+    <script type="text/javascript">
+        $(function () {
+            $('.bazzswitch-checkbox').change(function () {
+                $('.bazz').toggle(this.checked);
+            }).change(); //ensure visible state matches initially
+        });
+    </script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
